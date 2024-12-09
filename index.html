@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | Michael Jackson Style</title>
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #000000, #333333);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .registration-container {
+            background: linear-gradient(145deg, #222222, #444444);
+            border: 1px solid #FFD700;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+            width: 350px;
+            text-align: center;
+        }
+
+        .registration-container h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #FFD700;
+            font-family: 'Trebuchet MS', sans-serif;
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+        }
+
+        .registration-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: #333;
+            color: #FFD700;
+            font-size: 1em;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .registration-container input:focus {
+            outline: none;
+            border: 1px solid #FFD700;
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        .registration-container button {
+            width: 100%;
+            padding: 12px;
+            background: #FFD700;
+            color: #000;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .registration-container button:hover {
+            background: #e0c200;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .registration-container p {
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: #FF4500;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        
+        @keyframes starAnimation {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-2000px);
+            }
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #FFD700;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #FFD700;
+            animation: starAnimation 10s linear infinite;
+        }
+
+        .star:nth-child(2n) {
+            animation-delay: 2s;
+        }
+
+        .star:nth-child(3n) {
+            animation-delay: 5s;
+        }
+
+        .star:nth-child(5n) {
+            animation-delay: 7s;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="stars">
+        <div class="star" style="top: 10%; left: 30%;"></div>
+        <div class="star" style="top: 20%; left: 70%;"></div>
+        <div class="star" style="top: 40%; left: 50%;"></div>
+        <div class="star" style="top: 80%; left: 20%;"></div>
+        <div class="star" style="top: 60%; left: 80%;"></div>
+    </div>
+
+   
+    <div class="registration-container">
+        <h1>Регистрация</h1>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Имя пользователя" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Пароль" required>
+            <input type="password" id="confirmPassword" placeholder="Подтвердите пароль" required>
+            <button type="button" onclick="register()">Создать аккаунт</button>
+        </form>
+        <p class="error-message" id="errorMessage"></p>
+        <p>Уже есть аккаунт? <a href="file:///Users/zhoncy2007/Desktop/HTML/%D0%9C%D0%B0%D0%B9%D0%BA%D0%BB%20%D0%94%D0%B6%D0%B5%D0%BA%D1%81%D0%BE%D0%BD%20-%20%D0%9F%D0%BE%D0%BF%20%D0%9F%D0%B0%D1%82%D1%88%D0%B0%D1%81%D1%8B.html" style="color: #FFD700;">Войдите</a></p>
+    </div>
+
+    <script>
+        function register() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                document.getElementById('errorMessage').innerText = "Пароли не совпадают!";
+                return;
+            }
+
+            
+            alert("Аккаунт успешно создан для " + username);
+        }
+    </script>
+</body>
+</html>
